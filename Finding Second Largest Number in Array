@@ -1,0 +1,55 @@
+------------------------------------------------------------------------------------------------------------------------------------------
+Author: Modjadji Mokoto (@Jaxa-Mokoto0
+Published Date: 15/02/2019
+------------------------------------------------------------------------------------------------------------------------------------------
+
+//Problem 2 - write a function to return the largest number in a given array
+
+int second_largest()
+{
+	//define the array
+	int A[10] = {0};
+
+
+	for (int x = 0; x <= 9; x++)
+	{
+		std::cout << "Enter the list of the arrays - up to 10 integers accepted: "; //input 10 digits from the user to insert into the array
+		std::cin >> A[x];
+	}
+
+	//sort the two given arrays in descending order, this is to expose the highest value
+	//using the algorithmic approach
+
+	for (int i = 0; i <=9 ; i++)
+	{
+		for (int j = 0; j <= 9 -1; j++)
+		{
+			if (A[j] <= A[j+1])
+			{
+				int temp = A[j];
+				A[j] = A[j + 1];
+				A[j + 1] = temp;
+
+			}
+		}
+	}
+
+	std::cout << std::endl << "The sorted list is now: " << std::endl;
+	for (int p = 0; p <=  9; p++)
+	{
+		std::cout << A[p] << " ";
+	}
+	cout << endl;
+
+	//Now to find the second largest value in the list, which now should be element 2 (sorted from highest to lowest)
+	cout << "The second largest number in the list is: " << A[1] << endl;
+
+	return true;
+}
+
+
+
+int Main() //call the defined function
+{
+  second_largest();
+}
